@@ -41,10 +41,81 @@ section h2{margin-bottom:40px;color:#00f7ff;}
 .card{background:#111;padding:30px;border-radius:15px;box-shadow:0 0 15px #00f7ff33;transition:0.3s;}
 .card:hover{transform:translateY(-10px);box-shadow:0 0 25px #00f7ff;}
 
-/* Portfolio Gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.gallery img{width:100%;border-radius:15px;transition:0.3s;}
-.gallery img:hover{transform:scale(1.05);box-shadow:0 0 25px #00f7ff;}
+<section id="portfolio">
+<h2 class="section-title">Our Work</h2>
+
+<div class="gallery">
+
+<img src="images/work1.jpg" onclick="openModal(this.src)">
+<img src="images/work2.jpg" onclick="openModal(this.src)">
+<img src="images/work3.jpg" onclick="openModal(this.src)">
+<img src="images/work4.jpg" onclick="openModal(this.src)">
+<img src="images/work5.jpg" onclick="openModal(this.src)">
+<img src="images/work6.jpg" onclick="openModal(this.src)">
+
+</div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" class="lightbox" onclick="closeModal()">
+<img id="lightbox-img">
+</div>
+
+<style>
+
+/* GALLERY GRID */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:15px;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(0,247,255,0.6);
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:20px;
+}
+
+</style>
+
+<script>
+function openModal(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=src;
+}
+
+function closeModal(){
+document.getElementById("lightbox").style.display="none";
+}
+</script>
 
 /* Contact Form */
 form{display:flex;flex-direction:column;max-width:500px;margin:0 auto;}
